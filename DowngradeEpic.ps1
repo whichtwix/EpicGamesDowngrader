@@ -22,27 +22,29 @@ if ( $LegendaryHash.Hash -ne $CorrectHash )
 	exit 1
 }
 
+#temporarily change preference so try catch works properly
+$erroractionpreference = 'stop'
 # This gives Legendary access to the Epic account, this is needed to download the game
 # Sometimes a login can become invalid so at that point it has to be redone
 try
 {
-	.\legendary auth --import
+	.\legendary auth --import 2>&1
 }
 catch
 {
 	Write-Host -BackgroundColor yellow "could not import a existing login - attempting fresh login"
 	try
 	{
-		.\legendary auth --delete
-		.\legendary auth --import
+		.\legendary auth --delete 2>&1
+		.\legendary auth --import 2>&1
 	}
 	catch
 	{
 		Write-Host -BackgroundColor yellow "attempt failed - please login manually"
-		.\legendary auth
+		.\legendary auth 2>&1
 	}
 }
-
+$erroractionpreference = 'continue'
 # we have to do this first so the base url can populate as even putting it as a argument later is not enough
 Write-Host  -BackgroundColor red "downloading latest among us version first"
 Write-Host  -BackgroundColor red "Please note the 'Install path:' line's folder shown, you will need it later"
