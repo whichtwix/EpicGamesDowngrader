@@ -28,5 +28,10 @@ Write-Host  -BackgroundColor red "making a quick start file in this folder, clic
 
 Write-Host "done"
 Write-Host  -BackgroundColor red "Now you must reinstall the mod to the Install path you noted"
+Write-Host  -BackgroundColor red "Attempting to access the new Among Us folder through file explorer"
+Write-Host  -BackgroundColor red "if not found, please find it manually"
+
+Set-Location -Path (Get-Item -Path $env:USERPROFILE)
+explorer.exe Games\AmongUs
 
 Read-Host
