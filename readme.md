@@ -5,26 +5,28 @@ with the latest version of the game. The third party tool [legendary](https://gi
 
 # Common issues
 
-1. The script may sometimes not create the cmd file.
-   <br> Solution: Download the cmd file yourself from the release tab
-2. The script may instantly close.
+1. The script may sometimes not create EpicGamesStarter.exe or it may not work due to your computer environment
+   <br> Solution:
+      - Download the exe from [here](https://github.com/whichtwix/EpicGamesStarter/releases/latest). <br>
+      - If it does not work download the cmd file in the releases tab, place that with the legendary.exe, use that to start the game.
+3. The script may instantly close.
    <br> Solution:
     - search powershell in your windows search bar and open it <br>
     - navigate to the folder the script is in, by doing for example ```cd downloads``` or ```cd desktop``` <br>
     - write ```Set-ExecutionPolicy Unrestricted -Scope Process``` and click enter <br>
     - write ```./DowngradeEpic.ps1``` and click enter <br>
-3. "Access to the path '<>' is denied".
-   <br> solution: If the error mentions Legendary.exe it means it cannot find the file and it likely wasnt able to be downloaded. Install it manually [here](https://github.com/whichtwix/legendary/releases/latest).
+4. "Access to the path '<>' is denied".
+   <br> solution: If the error mentions Legendary.exe it means it cannot find the file and it likely wasnt able to be downloaded. Install it manually [here](https://github.com/derrod/legendary/releases/latest).
    If it mentions the path it is installing Among us to you may have to do this:
      - open legendary.exe from the folder the script is
      - write ```legendary uninstall 963137e4c29d4c79a81323b8fab03a40 --keep-files``` and click enter
      - retry the powershell script
-4. Variations of "Invalid credentials, Please login again".
+5. Variations of "Invalid credentials, Please login again".
    <br> Solution:
      - open legendary.exe from the folder the script is
      - write ```legendary auth --delete``` and click enter
      - write ```legendary auth``` and click enter
-5. "the game `963137e4c29d4c79a81323b8fab03a40` could not be found, did you spell it correctly?"
+6. "the game `963137e4c29d4c79a81323b8fab03a40` could not be found, did you spell it correctly?"
    <br> Solution:
      - the current signed in account does not have Among Us then which may occur from having multiple epic accounts
      - follow guidance from number 4 above and login to the account that has the game
