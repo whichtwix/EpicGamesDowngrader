@@ -27,6 +27,11 @@ explorer.exe Games\AmongUs
 
 Write-Host  -BackgroundColor red "making a quick start file in the among us folder, click this to start the game"
 Write-Host  -BackgroundColor red "it will be named EpicGamesStarter.exe"
-Invoke-WebRequest -Uri https://github.com/whichtwix/EpicGamesStarter/releases/latest/download/EpicGamesStarter.exe -UseBasicParsing -OutFile Games\AmongUs\EpicGamesStarter.exe
+Invoke-WebRequest -Uri https://github.com/whichtwix/EpicGamesStarter/releases/download/1.0.2/EpicGamesStarter.exe.zip -UseBasicParsing -OutFile Games\AmongUs\EpicGamesStarter.exe.zip
+if (Test-Path "Games\AmongUs\EpicGamesStarter.exe.zip") 
+{
+    Expand-Archive -Path "Games\AmongUs\EpicGamesStarter.exe.zip" -DestinationPath "Games\AmongUs" -Force
+    Remove-Item "Games\AmongUs\EpicGamesStarter.exe.zip"
+}
 
 Read-Host
