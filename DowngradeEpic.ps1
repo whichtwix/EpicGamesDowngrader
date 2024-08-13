@@ -12,9 +12,9 @@ curl.exe -LO https://github.com/whichtwix/legendary/releases/latest/download/leg
 .\legendary auth --import
 
 # we have to do this first so the base url can populate as even putting it as a argument later is not enough
-.\legendary install 963137e4c29d4c79a81323b8fab03a40 -n
+.\legendary install 963137e4c29d4c79a81323b8fab03a40 --abort-if-any-installed
 
-Invoke-WebRequest -Uri https://github.com/whichtwix/Data/raw/master/epic/manifests/963137e4c29d4c79a81323b8fab03a40_2024.6.4.manifest -UseBasicParsing -OutFile auman.manifest
+Invoke-WebRequest -Uri https://github.com/whichtwix/Data/raw/master/epic/manifests/963137e4c29d4c79a81323b8fab03a40_2024.6.18.manifest -UseBasicParsing -OutFile auman.manifest
 
 .\legendary install 963137e4c29d4c79a81323b8fab03a40 --manifest auman.manifest -y
 
@@ -27,7 +27,10 @@ explorer.exe Games\AmongUs
 
 Write-Host  -BackgroundColor red "making a quick start file in the among us folder, click this to start the game"
 Write-Host  -BackgroundColor red "it will be named EpicGamesStarter.exe"
-Invoke-WebRequest -Uri https://github.com/whichtwix/EpicGamesStarter/releases/download/1.0.2/EpicGamesStarter.exe.zip -UseBasicParsing -OutFile Games\AmongUs\EpicGamesStarter.exe.zip
+if (!(Test-Path "Games\AmongUs\EpicGamesStarter.exe")) 
+{
+    Invoke-WebRequest -Uri https://github.com/whichtwix/EpicGamesStarter/releases/download/1.0.2/EpicGamesStarter.exe.zip -UseBasicParsing -OutFile Games\AmongUs\EpicGamesStarter.exe.zip
+}
 if (Test-Path "Games\AmongUs\EpicGamesStarter.exe.zip") 
 {
     Expand-Archive -Path "Games\AmongUs\EpicGamesStarter.exe.zip" -DestinationPath "Games\AmongUs" -Force
