@@ -15,7 +15,7 @@ with the latest version of the game. The third party tool [legendary](https://gi
     - navigate to the folder the script is in, by doing for example ```cd downloads``` or ```cd desktop``` <br>
     - write ```Set-ExecutionPolicy Unrestricted -Scope Process``` and click enter <br>
     - write ```./DowngradeEpic.ps1``` and click enter <br>
-3. "Access to the path '<>' is denied".
+3. "Access to the path '<>' is denied" / "No write access to '<>' ".
    <br> solution: If the error mentions Legendary.exe it means it cannot find the file and it likely wasnt able to be downloaded. Install it manually [here](https://github.com/derrod/legendary/releases/latest).
    If it mentions the path it is installing Among us to you may have to do this:
      - open legendary.exe from the folder the script is
@@ -33,4 +33,5 @@ with the latest version of the game. The third party tool [legendary](https://gi
 6. "curl (35)Next initializeSecurityContext failed" or similar
    <br> Solution:
      - Anitivirus is blocking a download so turning it off will fix it
+
 Extra Note: number 3 may also occur because of antivirus quarantining legendary so you may want to turn it off temporarily if youve tried downloading it manually
