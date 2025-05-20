@@ -14,7 +14,7 @@ curl.exe -LO https://github.com/whichtwix/legendary/releases/latest/download/leg
 # we have to do this first so the base url can populate as even putting it as a argument later is not enough
 .\legendary install 963137e4c29d4c79a81323b8fab03a40 --abort-if-any-installed
 
-Invoke-WebRequest -Uri https://github.com/whichtwix/Data/raw/master/epic/manifests/963137e4c29d4c79a81323b8fab03a40_2024.11.26.manifest -UseBasicParsing -OutFile auman.manifest
+Invoke-WebRequest -Uri https://github.com/whichtwix/Data/raw/master/epic/manifests/963137e4c29d4c79a81323b8fab03a40_2025.3.31.manifest -UseBasicParsing -OutFile auman.manifest
 
 .\legendary install 963137e4c29d4c79a81323b8fab03a40 --manifest auman.manifest -y
 
