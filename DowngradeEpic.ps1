@@ -3,6 +3,13 @@
 # 2. Install with the provided manifest
 # 3. Create a small launch script for the game
 
+if ([bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544"))
+{
+    Write-Host -BackgroundColor red "Please run this script as a normal user, not as administrator"
+    Read-Host
+    exit
+}
+
 Write-Host -BackgroundColor red "Downloading Legendary, please wait..."
 
 # Download Legendary
@@ -19,14 +26,14 @@ Invoke-WebRequest -Uri https://github.com/whichtwix/Data/raw/master/epic/manifes
 .\legendary install 963137e4c29d4c79a81323b8fab03a40 --manifest auman.manifest -y
 
 Write-Host "done"
-Write-Host  -BackgroundColor red "Attempting to access the new Among Us folder through file explorer"
-Write-Host  -BackgroundColor red "if not found, please find it manually at C:\users\you\games\among us or similar"
+Write-Host  -BackgroundColor green "Attempting to access the new Among Us folder through file explorer"
+Write-Host  -BackgroundColor green "if not found, please find it manually at C:\users\you\games\among us or similar"
 
 Set-Location -Path (Get-Item -Path $env:USERPROFILE)
 explorer.exe Games\AmongUs
 
-Write-Host  -BackgroundColor red "making a quick start file in the among us folder, click this to start the game"
-Write-Host  -BackgroundColor red "it will be named EpicGamesStarter.exe"
+Write-Host  -BackgroundColor green "making a quick start file in the among us folder, click this to start the game"
+Write-Host  -BackgroundColor green "it will be named EpicGamesStarter.exe"
 if (!(Test-Path "Games\AmongUs\EpicGamesStarter.exe")) 
 {
     Invoke-WebRequest -Uri https://github.com/whichtwix/EpicGamesStarter/releases/download/1.0.2/EpicGamesStarter.exe.zip -UseBasicParsing -OutFile Games\AmongUs\EpicGamesStarter.exe.zip
