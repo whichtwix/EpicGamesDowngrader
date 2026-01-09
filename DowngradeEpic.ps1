@@ -36,7 +36,7 @@ Write-Host  -BackgroundColor green "making a quick start file in the among us fo
 Write-Host  -BackgroundColor green "it will be named EpicGamesStarter.exe"
 if (!(Test-Path "Games\AmongUs\EpicGamesStarter.exe")) 
 {
-    Invoke-WebRequest -Uri https://github.com/whichtwix/EpicGamesStarter/releases/download/1.0.2/EpicGamesStarter.exe.zip -UseBasicParsing -OutFile Games\AmongUs\EpicGamesStarter.exe.zip
+    Invoke-WebRequest -Uri https://github.com/whichtwix/EpicGamesStarter/releases/latest/download/EpicGamesStarter.exe.zip -UseBasicParsing -OutFile Games\AmongUs\EpicGamesStarter.exe.zip
 }
 if (Test-Path "Games\AmongUs\EpicGamesStarter.exe.zip") 
 {
